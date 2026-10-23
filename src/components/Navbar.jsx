@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { MdOutlineMenuOpen , MdOutlineShoppingBag} from "react-icons/md";
 import { useState } from "react";
-
+import { useCart } from "../context/CartContext";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+ const { cart } = useCart();
   return (
     <nav className="w-full bg-stone-200 shadow-md">
 
@@ -55,7 +55,7 @@ function Navbar() {
             <button className="relative text-3xl text-stone-800 hover:text-orange-600 transition">
                 <MdOutlineShoppingBag />
                 <span className="absolute -top-2 -right-2 bg-orange-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
-                  0
+                 {cart.length}
                 </span>
 
             </button>
@@ -67,13 +67,13 @@ function Navbar() {
             <button className="relative text-xl text-stone-800 hover:text-orange-600 transition min-[721px]:hidden">
                <MdOutlineShoppingBag />
                <span className="absolute -top-2 -right-2 bg-orange-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
-                0
+             {cart.length}
                </span>
             </button>
 
             <button 
             onClick={()=>setIsOpen(true)}
-            className="text-xl text-stone-800">
+            className="text-xl text-stone-800 ">
   <MdOutlineMenuOpen />
             </button>
             </div>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useCart } from "../context/CartContext";
 function Products() {
   const [products, setProducts] = useState([]);
-
+ 
+  const { addToCart } = useCart();
   const fetchData = async () => {
     const response = await axios(
       "https://fakestoreapi.com/products"
@@ -57,9 +58,10 @@ function Products() {
                   ${product.price.toFixed(2)}
                 </p>
 
-                <button className="w-full mt-4 bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
-                  Add to Cart
-                </button>
+                <button   onClick={() => addToCart(product)}
+                 className="w-full mt-4 bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+                   Add to Cart
+                </button> 
               </div>
             </div>
           ))}
