@@ -32,10 +32,10 @@ function Navbar() {
             </Link>
 
             <Link
-              to="/menu"
+              to="/products"
               className="text-stone-700 hover:text-orange-600 transition duration-300"
             >
-              Menu
+             Products
             </Link>
 
             <Link
@@ -86,11 +86,11 @@ function Navbar() {
           </Link>
 
           <Link
-            to="/menu"
+            to="/products"
             onClick={() => setIsOpen(false)}
             className="text-3xl font-semibold"
           >
-            Menu
+            Prpoducts
           </Link>
 
           <Link
