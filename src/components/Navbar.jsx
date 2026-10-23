@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MdOutlineMenuOpen } from "react-icons/md";
+import { MdOutlineMenuOpen , MdOutlineShoppingBag} from "react-icons/md";
 import { useState } from "react";
 
 function Navbar() {
@@ -52,16 +52,31 @@ function Navbar() {
               Contact
             </Link>
 
+            <button className="relative text-3xl text-stone-800 hover:text-orange-600 transition">
+                <MdOutlineShoppingBag />
+                <span className="absolute -top-2 -right-2 bg-orange-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
+                  0
+                </span>
+
+            </button>
+
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(true)}
-            className="text-3xl text-stone-800 min-[721px]:hidden"
-          >
-            <MdOutlineMenuOpen />
-          </button>
+          {/* mobile right side */}
+            <div className="flex gap-4">
+            <button className="relative text-xl text-stone-800 hover:text-orange-600 transition min-[721px]:hidden">
+               <MdOutlineShoppingBag />
+               <span className="absolute -top-2 -right-2 bg-orange-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
+                0
+               </span>
+            </button>
 
+            <button 
+            onClick={()=>setIsOpen(true)}
+            className="text-xl text-stone-800">
+  <MdOutlineMenuOpen />
+            </button>
+            </div>
         </div>
 
       </div>
@@ -90,7 +105,7 @@ function Navbar() {
             onClick={() => setIsOpen(false)}
             className="text-3xl font-semibold"
           >
-            Prpoducts
+            Products
           </Link>
 
           <Link
